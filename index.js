@@ -2,7 +2,7 @@ const express = require('express')
 const app = express();
 const morgan = require('morgan');
 //import routes module
-const {getPosts}= require('./routes/post')
+const postRoutes= require('./routes/post')
 
 
 //middleware
@@ -17,7 +17,7 @@ app.use(morgan("dev"));
 
 
 
-app.get('/',getPosts);
+app.use('/',postRoutes);
 
 const port = 8080
 app.listen(port,()=>console.log(`Node Js is listening on port: ${port}`));
